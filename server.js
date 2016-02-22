@@ -13,7 +13,9 @@ io.on('connection', function(socket) {
 	  	socket.on('disconnect', function(){
     	console.log('a user disconnected');
 	});
-
+	/*when requested to emit the value of the text editor, the 
+	server broadcasts that information to everyone on the page
+	except for the sender*/
 	socket.on('write code', function(text){
 		socket.broadcast.emit('write code', text);
 	});
