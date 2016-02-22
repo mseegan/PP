@@ -7,12 +7,12 @@ var io = require('socket.io')(http).listen(server);
 app.use(express.static(__dirname + '/public'));
 
 io.on('connection', function(socket) {
-	// a user connects
-	console.log('a user has connected');
-	socket.emit('join', {hello: 'user'});
-	// a user diconnects
-	socket.on('diconnect', function(){
-		console.log('a user has disconnected');
+	//a user connects
+		console.log('a user connected');
+		socket.emit('join', {hello: 'world'});
+	//a user disconnects
+	  	socket.on('disconnect', function(){
+    	console.log('a user disconnected');
 	});
 });
 
