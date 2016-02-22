@@ -18,7 +18,7 @@
     </head>
 
     <body>
-            <textarea id='demotext'>
+            <textarea id='textzone'>
 
             function foo() {
                 for(i = 0, i < 10, i++)
@@ -29,7 +29,7 @@
 
         <script type="text/javascript">
 
-            var editor = CodeMirror.fromTextArea(document.getElementById("demotext"), {
+            var editor = CodeMirror.fromTextArea(document.getElementById("textzone"), {
                   lineNumbers: true,
                   mode: "javascript"
             });

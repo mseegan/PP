@@ -13,6 +13,10 @@ io.on('connection', function(socket) {
 	  	socket.on('disconnect', function(){
     	console.log('a user disconnected');
 	});
+
+	socket.on('write code', function(text){
+		socket.broadcast.emit('write code', text);
+	});
 });
 
 app.get('/', function(req, res, next){
