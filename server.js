@@ -9,7 +9,6 @@ app.use(express.static(__dirname + '/public'));
 io.on('connection', function(socket) {
 	//a user connects
 		console.log('a user connected');
-		socket.emit('join', {hello: 'world'});
 	//a user disconnects
 	  	socket.on('disconnect', function(){
     	console.log('a user disconnected');
