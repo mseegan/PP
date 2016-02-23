@@ -1,11 +1,11 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var FileSchema = new Schema({
+var fileSchema = new Schema({
 	name: String,
-	text: text
+	text: String
 })
 
-var File = mongoose.model('File', FileSchema);
+var File = mongoose.model('File', fileSchema);
 
 module.exports = File;
