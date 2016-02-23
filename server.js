@@ -24,6 +24,11 @@ io.on('connection', function(socket) {
 	socket.on('write code', function(text){
 		socket.broadcast.emit('write code', text);
 	});
+
+	//mode change
+	socket.on('change mode', function(e){
+		socket.broadcast.emit('change mode', e)
+	})
 });
 
 //html endpoints

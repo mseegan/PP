@@ -16,21 +16,24 @@ $(document).ready(function() {
   	editor.setValue(text);
   });
 
-  //changes the mode of the text editor
-  $("#selectMode").change(function(){
-  	if ($("#selectMode").val() == "1") {
-  	console.log("js mode");
-	editor.setOption("mode", "javascript");
-	} else if ($("#selectMode").val() == "2") {
-  	console.log("css mode");
-	editor.setOption("mode", "css");
-	} else if ($("#selectMode").val() == "3") {
-  	console.log("ruby mode");
-	editor.setOption("mode", "ruby");
-	} else if ($("#selectMode").val() == "4") {
-  	console.log("python mode");
-	editor.setOption("mode", "python");
-	} 
+  socket.on('change mode', function(e){
+  	$("#selectMode").val(e);
+  	setLanguage(e);
+  })
+
+  // //requests the server to change the language mode
+  // of another browser's text editor.
+  $("#selectMode").change(function (){
+  	
+	var selection =	$('#selectMode').val();
+
+	socket.emit('change mode', selection);
+ 	setLanguage(selection)
   });
 });
 
+//sets the language of the text editor
+function setLanguage(selection) {
+	editor.setOption("mode", selection);
+	editor.setOption("htmlMode", selection === "xml");		
+}

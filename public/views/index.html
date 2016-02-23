@@ -16,6 +16,8 @@
         <script src="/mode/ruby/ruby.js"></script>
         <script src="/mode/python/python.js"></script>
         <script src="/mode/css/css.js"></script>
+        <script type="text/javascript" src="/mode/htmlmixed/htmlmixed.js"></script>
+        <script type="text/javascript" src="/mode/xml/xml.js"></script>
 
 
 
@@ -26,10 +28,7 @@
 
     <body>
             <textarea id='textzone'>
-public class HelloWorld { 
-    public static void main(String[] args) { 
-        System.out.println("Hello, World");
-    }
+<p>hello world</p>
 
 function hello() {
     console.log("hello world");
@@ -42,16 +41,18 @@ print "Hello World!";
 
             </textarea>
 <select id="selectMode">
-    <option value="1">javascript</option>
-    <option value="2">css</option>
-    <option value="3">ruby</option>
-    <option value="4">python</option>
+    <option value="xml">html</option>
+    <option value="css">css</option>
+    <option value="javascript">javascript</option>
+    <option value="ruby">ruby</option>
+    <option value="python">python</option>
 </select>
         <script type="text/javascript">
 
             var editor = CodeMirror.fromTextArea(document.getElementById("textzone"), {
                   lineNumbers: true,
-                  mode: "javascript"
+                  mode: "xml",
+                  htmlMode: true
             });
 
         </script>
