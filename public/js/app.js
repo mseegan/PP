@@ -26,11 +26,17 @@ $(document).ready(function() {
   $("#selectMode").change(function (){
   	
 	var selection =	$('#selectMode').val();
-
 	socket.emit('change mode', selection);
  	setLanguage(selection)
   });
+  $("#selectTheme").change(function (){
+  	var selection = $('#selectTheme').val();
+	editor.setOption("theme", selection);
+  });
 });
+
+
+
 
 //sets the language of the text editor
 function setLanguage(selection) {

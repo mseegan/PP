@@ -10,6 +10,12 @@
         <script type="text/javascript" src="/js/codemirror.js"></script>
         <!-- codemirror styles -->
         <link rel="stylesheet" type="text/css" href="/css/codemirror.css">
+        <link rel="stylesheet" type="text/css" href="css/theme/isotope.css">
+        <link rel="stylesheet" type="text/css" href="css/theme/the-matrix.css">
+        <link rel="stylesheet" type="text/css" href="css/theme/railscasts.css">
+        <link rel="stylesheet" type="text/css" href="css/theme/midnight.css">
+        <link rel="stylesheet" type="text/css" href="css/theme/seti.css">
+
 
         <!-- modes for codemirror -->
         <script src="/mode/javascript/javascript.js"></script>
@@ -47,12 +53,21 @@ print "Hello World!";
     <option value="ruby">ruby</option>
     <option value="python">python</option>
 </select>
+<select id="selectTheme">
+    <option value="default">default</option>
+    <option value="isotope">isotope</option>
+    <option value="the-matrix">the-matrix</option>
+    <option value="midnight">midnight</option>
+    <option value="railscasts">railscasts</option>
+    <option value="seti">seti</option>
+</select>
         <script type="text/javascript">
 
             var editor = CodeMirror.fromTextArea(document.getElementById("textzone"), {
                   lineNumbers: true,
                   mode: "xml",
-                  htmlMode: true
+                  htmlMode: true,
+                  theme: "default"
             });
 
         </script>
