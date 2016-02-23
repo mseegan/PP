@@ -1,0 +1,75 @@
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>Project Name</title>
+        <!-- jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <!-- socket.io -->
+        <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+        <!-- codemirror -->
+        <script type="text/javascript" src="/js/codemirror.js"></script>
+        <!-- codemirror styles -->
+        <link rel="stylesheet" type="text/css" href="/css/codemirror.css">
+        <link rel="stylesheet" type="text/css" href="css/theme/isotope.css">
+        <link rel="stylesheet" type="text/css" href="css/theme/the-matrix.css">
+        <link rel="stylesheet" type="text/css" href="css/theme/railscasts.css">
+        <link rel="stylesheet" type="text/css" href="css/theme/midnight.css">
+        <link rel="stylesheet" type="text/css" href="css/theme/seti.css">
+
+
+        <!-- modes for codemirror -->
+        <script src="/mode/javascript/javascript.js"></script>
+        <script src="/mode/ruby/ruby.js"></script>
+        <script src="/mode/python/python.js"></script>
+        <script src="/mode/css/css.js"></script>
+        <script type="text/javascript" src="/mode/htmlmixed/htmlmixed.js"></script>
+        <script type="text/javascript" src="/mode/xml/xml.js"></script>
+
+
+
+
+        <!-- main javascript file -->
+        <script src="/js/Project.js"></script>
+    </head>
+
+    <body>
+            <textarea id='textzone'>
+<p>hello world</p>
+
+function hello() {
+    console.log("hello world");
+}
+def hello
+    p "hello world"
+end
+
+print "Hello World!";
+
+            </textarea>
+<select id="selectMode">
+    <option value="xml">html</option>
+    <option value="css">css</option>
+    <option value="javascript">javascript</option>
+    <option value="ruby">ruby</option>
+    <option value="python">python</option>
+</select>
+<select id="selectTheme">
+    <option value="default">default</option>
+    <option value="isotope">isotope</option>
+    <option value="the-matrix">the-matrix</option>
+    <option value="midnight">midnight</option>
+    <option value="railscasts">railscasts</option>
+    <option value="seti">seti</option>
+</select>
+        <script type="text/javascript">
+
+            var editor = CodeMirror.fromTextArea(document.getElementById("textzone"), {
+                  lineNumbers: true,
+                  mode: "xml",
+                  htmlMode: true,
+                  theme: "default"
+            });
+
+        </script>
+    </body>
+</html>

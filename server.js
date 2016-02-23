@@ -8,6 +8,13 @@ var bodyParser = require('body-parser');
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
+//html endpoints
+app.get('/', function(req, res, next){
+	res.sendFile(__dirname + '/public/views/index.html');
+});
+app.get('/project/:id', function(req, res, next){
+	res.sendFile(__dirname + '/public/views/project.html');
+});
 //database
 var db = require('./models');
 //routes
@@ -26,10 +33,6 @@ io.on('connection', function(socket) {
 	socket.on('change mode', function(e){
 		socket.broadcast.emit('change mode', e)
 	})
-});
-//html endpoints
-app.get('/', function(req, res, next){
-	res.sendFile(__dirname + '/public/views/index.html');
 });
 //server
 server.listen(3000, function(){
