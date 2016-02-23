@@ -2,8 +2,8 @@ $(document).ready(function() {
 	console.log("javascript is running");
 	//allows use of socket.io's methods
 	var socket = io();
-	/* keyup events trigger a request to emit the 
-	value of the entire text editor to other users*/
+	/* asks the server to emit the 
+	value of the text editor*/
   editor.on("keyup", function() {
     console.log("input text recieved");
     socket.emit('write code', editor.getValue());
@@ -15,6 +15,8 @@ $(document).ready(function() {
   socket.on('write code', function(text){
   	editor.setValue(text);
   });
+
+  //changes the mode of the text editor
   $("#selectMode").change(function(){
   	if ($("#selectMode").val() == "1") {
   	console.log("js mode");
