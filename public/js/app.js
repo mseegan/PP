@@ -15,4 +15,20 @@ $(document).ready(function() {
   socket.on('write code', function(text){
   	editor.setValue(text);
   });
+  $("#selectMode").change(function(){
+  	if ($("#selectMode").val() == "1") {
+  	console.log("js mode");
+	editor.setOption("mode", "javascript");
+	} else if ($("#selectMode").val() == "2") {
+  	console.log("css mode");
+	editor.setOption("mode", "css");
+	} else if ($("#selectMode").val() == "3") {
+  	console.log("ruby mode");
+	editor.setOption("mode", "ruby");
+	} else if ($("#selectMode").val() == "4") {
+  	console.log("python mode");
+	editor.setOption("mode", "python");
+	} 
+  });
 });
+

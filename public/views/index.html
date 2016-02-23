@@ -10,8 +10,15 @@
         <script type="text/javascript" src="/js/codemirror.js"></script>
         <!-- codemirror styles -->
         <link rel="stylesheet" type="text/css" href="/css/codemirror.css">
-        <!-- javascript mode for codemirror -->
+
+        <!-- modes for codemirror -->
         <script src="/mode/javascript/javascript.js"></script>
+        <script src="/mode/ruby/ruby.js"></script>
+        <script src="/mode/python/python.js"></script>
+        <script src="/mode/css/css.js"></script>
+
+
+
 
         <!-- main javascript file -->
         <script src="/js/app.js"></script>
@@ -19,13 +26,27 @@
 
     <body>
             <textarea id='textzone'>
+public class HelloWorld { 
+    public static void main(String[] args) { 
+        System.out.println("Hello, World");
+    }
 
-            function hello() {
-                console.log("hello world");
-            }
+function hello() {
+    console.log("hello world");
+}
+def hello
+    p "hello world"
+end
+
+print "Hello World!";
 
             </textarea>
-
+<select id="selectMode">
+    <option value="1">javascript</option>
+    <option value="2">css</option>
+    <option value="3">ruby</option>
+    <option value="4">python</option>
+</select>
         <script type="text/javascript">
 
             var editor = CodeMirror.fromTextArea(document.getElementById("textzone"), {
