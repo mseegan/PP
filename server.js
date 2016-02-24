@@ -21,13 +21,6 @@ var db = require('./models');
 //API Endpoints
 app.get('/project', function createProject(req, res){
 	console.log('body', req.body);
-
-	db.Project.create(req.body, function(err, project) {
-		if (err) { console.log('error', err); }
-		console.log(project);
-		res.json(project);
-		res.redirect('http://localhost:3000/' + req.path)
-	});
 });
 //sockets
 io.on('connection', function(socket) {
@@ -52,6 +45,21 @@ io.on('connection', function(socket) {
   	});
 });
 //server
-server.listen(3000, function(){
+server.listen(process.env.PORT || 3000, function () {
 	console.log('listening on localhost:3000');
 });
+
+// handle incoming connections from clients
+io.sockets.on('connection', function(socket) {
+    // once a client has connected, we expect to get a ping from them saying what room they want to join
+    socket.on('room', function(room) {
+        socket.join(room);
+    });
+});
+
+// now, it's easy to send a message to just the clients in a given room
+room = "abc123";
+io.sockets.in(room).emit('message', 'what is going on, party people?');
+
+// this message will NOT go to the client defined above
+io.sockets.in('foobar').emit('message', 'anyone in this room yet?');
