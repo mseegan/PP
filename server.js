@@ -12,12 +12,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/', function(req, res, next){
 	res.sendFile(__dirname + '/public/views/index.html');
 });
-app.get('/project/:id', function(req, res, next){
+app.get('/project', function(req, res, next){
 	res.sendFile(__dirname + '/public/views/project.html');
 });
 //database
 var db = require('./models');
-//routes
+//sockets
 io.on('connection', function(socket) {
 	//a user connects
 		console.log('a user connected');
@@ -31,8 +31,13 @@ io.on('connection', function(socket) {
 	});
 	//language mode change
 	socket.on('change mode', function(e){
-		socket.broadcast.emit('change mode', e)
-	})
+		socket.broadcast.emit('change mode', e);
+	});
+	//chat sends message
+  	socket.on('chat message', function(msg){
+    	console.log('message: ' , msg);
+ 	 io.emit('chat message', msg);
+  	});
 });
 //server
 server.listen(3000, function(){

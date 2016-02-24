@@ -15,11 +15,16 @@ $(document).ready(function() {
   socket.on('write code', function(text){
   	editor.setValue(text);
   });
-
+  //change language mode
   socket.on('change mode', function(e){
   	$("#selectMode").val(e);
   	setLanguage(e);
-  })
+  });
+   // chat - recieve message
+  socket.on('chat message', function(msg){
+   $('#messages').append($('<li>').text(msg));
+   $('#messages')[0].scrollTop = $('#messages')[0].scrollHeight;
+  });  
 
   // //requests the server to change the language mode
   // of another browser's text editor.
@@ -27,12 +32,20 @@ $(document).ready(function() {
   	
 	var selection =	$('#selectMode').val();
 	socket.emit('change mode', selection);
- 	setLanguage(selection)
+ 	setLanguage(selection);
   });
   $("#selectTheme").change(function (){
   	var selection = $('#selectTheme').val();
 	editor.setOption("theme", selection);
   });
+
+  //chat - send message
+   	 $('#chatSubmit').click(function(e){
+ 	 	console.log("submit pressed");
+  		e.preventDefault();
+    	socket.emit('chat message', $('#m').val());
+   	 	$('#m').val('');
+	});	
 });
 
 
@@ -43,3 +56,4 @@ function setLanguage(selection) {
 	editor.setOption("mode", selection);
 	editor.setOption("htmlMode", selection === "xml");		
 }
+

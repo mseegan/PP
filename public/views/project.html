@@ -2,13 +2,18 @@
     <head>
     <meta charset="utf-8">
     <title>Project Name</title>
-        <!-- jquery -->
+            <!-- jquery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <!-- socket.io -->
+            <!-- ajax -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>    
+            <!-- bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+            <!-- socket.io -->
         <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-        <!-- codemirror -->
+            <!-- codemirror -->
         <script type="text/javascript" src="/js/codemirror.js"></script>
-        <!-- codemirror styles -->
+            <!-- codemirror styles -->
         <link rel="stylesheet" type="text/css" href="/css/codemirror.css">
         <link rel="stylesheet" type="text/css" href="css/theme/isotope.css">
         <link rel="stylesheet" type="text/css" href="css/theme/the-matrix.css">
@@ -27,40 +32,63 @@
 
 
 
-
+        <!-- main css styles -->
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
         <!-- main javascript file -->
-        <script src="/js/Project.js"></script>
+        <script src="js/project.js"></script>
+        <!-- navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- <div>
+                  <img class="navbar-brand-icon" src = "/assets/navbar-brand-icon.png">
+                </div> -->
+                <a class="navbar-brand" href="/">RPP</a>
+            </div>
+            <div class="collapse navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+          
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                </ul>         
+            </div>
+        </nav>
     </head>
 
     <body>
-            <textarea id='textzone'>
-<p>hello world</p>
+        <textarea id='textzone'>
+            <p>hello world</p>
 
-function hello() {
-    console.log("hello world");
-}
-def hello
-    p "hello world"
-end
+            function hello() {
+                console.log("hello world");
+            }
+            def hello
+                p "hello world"
+            end
 
-print "Hello World!";
+            print "Hello World!";
 
             </textarea>
-<select id="selectMode">
-    <option value="xml">html</option>
-    <option value="css">css</option>
-    <option value="javascript">javascript</option>
-    <option value="ruby">ruby</option>
-    <option value="python">python</option>
-</select>
-<select id="selectTheme">
-    <option value="default">default</option>
-    <option value="isotope">isotope</option>
-    <option value="the-matrix">the-matrix</option>
-    <option value="midnight">midnight</option>
-    <option value="railscasts">railscasts</option>
-    <option value="seti">seti</option>
-</select>
+        <select id="selectMode">
+            <option value="xml">html</option>
+            <option value="css">css</option>
+            <option value="javascript">javascript</option>
+            <option value="ruby">ruby</option>
+            <option value="python">python</option>
+        </select>
+        <select id="selectTheme">
+            <option value="default">default</option>
+            <option value="isotope">isotope</option>
+            <option value="the-matrix">the-matrix</option>
+            <option value="midnight">midnight</option>
+            <option value="railscasts">railscasts</option>
+            <option value="seti">seti</option>
+        </select>
         <script type="text/javascript">
 
             var editor = CodeMirror.fromTextArea(document.getElementById("textzone"), {
@@ -71,5 +99,11 @@ print "Hello World!";
             });
 
         </script>
+        <div class="chat">
+        <ul id="messages"></ul>
+        </div>
+        <form action="">
+          <input id="m" autocomplete="off" /><button id="chatSubmit">Send</button>
+        </form>
     </body>
 </html>
