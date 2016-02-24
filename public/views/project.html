@@ -19,7 +19,7 @@
         <link rel="stylesheet" type="text/css" href="css/theme/the-matrix.css">
         <link rel="stylesheet" type="text/css" href="css/theme/railscasts.css">
         <link rel="stylesheet" type="text/css" href="css/theme/midnight.css">
-        <link rel="stylesheet" type="text/css" href="css/theme/seti.css">
+        <link rel="stylesheet" type="text/css" href="css/theme/yeti.css">
 
 
         <!-- modes for codemirror -->
@@ -52,7 +52,12 @@
             </div>
             <div class="collapse navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-          
+                    <li class="nav-item">
+                        <a class="nav-link" href="/project">Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sign Out</a>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                 </ul>         
@@ -87,7 +92,7 @@
             <option value="the-matrix">the-matrix</option>
             <option value="midnight">midnight</option>
             <option value="railscasts">railscasts</option>
-            <option value="seti">seti</option>
+            <option value="yeti">yeti</option>
         </select>
         <script type="text/javascript">
 
@@ -100,10 +105,10 @@
 
         </script>
         <div class="chat">
-        <ul id="messages"></ul>
+            <ul id="messages"></ul>
+            <form action="" id="messageForm">
+                <input id="m" autocomplete="off" maxlength="255"/><button id="chatSubmit">Send</button>
+            </form>
         </div>
-        <form action="">
-          <input id="m" autocomplete="off" /><button id="chatSubmit">Send</button>
-        </form>
     </body>
 </html>
