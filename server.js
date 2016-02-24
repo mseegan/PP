@@ -17,6 +17,18 @@ app.get('/project', function(req, res, next){
 });
 //database
 var db = require('./models');
+
+//API Endpoints
+app.get('/project', function createProject(req, res){
+	console.log('body', req.body);
+
+	db.Project.create(req.body, function(err, project) {
+		if (err) { console.log('error', err); }
+		console.log(project);
+		res.json(project);
+		res.redirect('http://localhost:3000/' + req.path)
+	});
+});
 //sockets
 io.on('connection', function(socket) {
 	//a user connects
