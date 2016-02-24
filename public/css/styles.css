@@ -1,0 +1,31 @@
+
+p{
+	color: black;
+	background: blue;
+}
+#signup{
+	width: 100px;
+	height: 25px;
+	font-size: 11px;
+}
+body{
+	padding-top: 50px;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+
+form {
+	background #000;
+	padding: 3px;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+#messages{
+	height: 150px;
+	overflow-y: scroll;
+	padding-bottom: 5px
+}
