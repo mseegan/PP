@@ -19,8 +19,25 @@ app.get('/project', function(req, res, next){
 var db = require('./models');
 
 //API Endpoints
-app.get('/project', function createProject(req, res){
+app.get('/project/:id', function getProject(req, res){
+	console.log('requested project id=', req.params.id);
+	db.Project.findOne({_id: req.params.id}, function(err, project){
+		if (err) { console.log('error', err); }
+		console.log(project);
+		res.sendFile(__dirname + '/public/views/project.html');
+	});
+});
+
+app.post('/project', function createProject(req, res){
 	console.log('body', req.body);
+
+	db.Project.create(req.body, function(err, project) {
+	  if (err) { console.log('error', err); }
+	  console.log(project);
+	  res.redirect("/project/" + project._id);
+
+
+	});
 });
 //sockets
 io.on('connection', function(socket) {

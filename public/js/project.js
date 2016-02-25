@@ -2,6 +2,16 @@ $(document).ready(function() {
 	console.log("javascript is running");
 	//allows use of socket.io's methods
 	var socket = io();
+	var room = "abc123";
+
+	socket.on('connect', function() {
+	   // Connected, let's sign-up for to receive messages for this room
+	   socket.emit('room', room);
+	});
+
+	socket.on('message', function(data) {
+	   console.log('Incoming message:', data);
+	});
 	/* asks the server to emit the 
 	value of the text editor*/
   editor.on("keyup", function() {
