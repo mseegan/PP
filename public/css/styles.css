@@ -2,6 +2,11 @@
 p{
 	color: black;
 	background: lightblue;
+	width: 30%;
+}
+#p2{
+	color: white;
+	background: red;
 }
 #signup{
 	width: 100px;
