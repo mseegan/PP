@@ -54,11 +54,11 @@ io.on('connection', function(socket) {
 	});
 	//sends text to all browsers connected to the server
 	socket.on('write code', function(text){
-		socket.broadcast.emit('write code', text);
+		socket.to(roomId).broadcast.emit('write code', text);
 	});
 	//language mode change
 	socket.on('change mode', function(e){
-		socket.broadcast.emit('change mode', e);
+		socket.to(roomId).broadcast.emit('change mode', e);
 	});
 	//chat sends message
 	socket.on('chat message', function(msg){
