@@ -49,7 +49,7 @@ socket.emit('create', projectId);
    	 $('#chatSubmit').click(function(e){
  	 	console.log("submit pressed");
   		e.preventDefault();
-    	socket.emit('chat message', $('#m').val());
+    	socket.emit('chat message', $('#n').val() + ': ', $('#m').val());
    	 	$('#m').val('');
 	});	
 });

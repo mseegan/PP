@@ -61,9 +61,9 @@ io.on('connection', function(socket) {
 		socket.to(roomId).broadcast.emit('change mode', e);
 	});
 	//chat sends message
-	socket.on('chat message', function(msg){
+	socket.on('chat message', function(username, msg){
 	  console.log('message: ' , msg);
-	  io.to(roomId).emit('chat message', msg);
+	  io.to(roomId).emit('chat message',username + msg);
 	});	
 });
 
