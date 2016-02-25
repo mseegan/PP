@@ -41,6 +41,11 @@ app.post('/project', function createProject(req, res){
 });
 //sockets
 io.on('connection', function(socket) {
+	var roomId;
+	socket.on('create', function(room){
+		roomId = room;
+		socket.join(room);
+	});
 	//a user connects
 		console.log('a user connected');
 	//a user disconnects
@@ -56,27 +61,13 @@ io.on('connection', function(socket) {
 		socket.broadcast.emit('change mode', e);
 	});
 	//chat sends message
-  	socket.on('chat message', function(msg){
-    	console.log('message: ' , msg);
- 	 io.emit('chat message', msg);
-  	});
+	socket.on('chat message', function(msg){
+	  console.log('message: ' , msg);
+	  io.to(roomId).emit('chat message', msg);
+	});	
 });
+
 //server
 server.listen(process.env.PORT || 3000, function () {
 	console.log('listening on localhost:3000');
 });
-
-// handle incoming connections from clients
-io.sockets.on('connection', function(socket) {
-    // once a client has connected, we expect to get a ping from them saying what room they want to join
-    socket.on('room', function(room) {
-        socket.join(room);
-    });
-});
-
-// now, it's easy to send a message to just the clients in a given room
-room = "abc123";
-io.sockets.in(room).emit('message', 'what is going on, party people?');
-
-// this message will NOT go to the client defined above
-io.sockets.in('foobar').emit('message', 'anyone in this room yet?');
