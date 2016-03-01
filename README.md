@@ -12,7 +12,6 @@ I wanted to make an application with socket.io, because the framework seemed lik
 	each other directly.
 * **HTML + CSS** for all our front-end engineering. 
 * **Bootstrap** navbar
-* **RESTful Routes** just kidding
 * **Git + Github** version control used at every stage of project articulating progress throughout the week
 * **Visual Design** wire framing & user stories were used to get the initial idea
 and later re-done to create a more user friendly design
