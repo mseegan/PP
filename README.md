@@ -10,6 +10,7 @@ I wanted to make an application with socket.io, because the framework seemed lik
 	* **mongoose** database
 	* **socket.io** used to allow users on different browsers to communicate with
 	each other directly.
+* **Code Mirror** the embedded text editor
 * **HTML + CSS** for all our front-end engineering. 
 * **Bootstrap** navbar
 * **Git + Github** version control used at every stage of project articulating progress throughout the week
