@@ -48,8 +48,6 @@ This application is deployed on heroku [here](https://remotepp.herokuapp.com/).
 
 * **users**
 * **REPL**  executing code is a must-have 
-<<<<<<< HEAD
 * **files model within a project** having more files on one document would be very useful for hosting collaborative repositories on the web
-=======
 * **files model within a project** having more files on one document would be very useful for hosting collaborative repositories on the web
->>>>>>> 4d4742ee2c5c4590a94c9c55950e7ac9fbce93a8
+
