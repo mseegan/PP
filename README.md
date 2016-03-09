@@ -11,7 +11,7 @@ I wanted to make an application with socket.io, because the framework seemed lik
 	* **socket.io** used to allow users on different browsers to communicate with
 	each other directly.
 * **Code Mirror** the embedded text editor
-* **HTML + CSS** for all our front-end engineering. 
+* **HTML + CSS** front end
 * **Bootstrap** navbar
 * **Git + Github** version control used at every stage of project articulating progress throughout the week
 * **Visual Design** wire framing & user stories were used to get the initial idea
