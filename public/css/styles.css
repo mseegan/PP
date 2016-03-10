@@ -38,10 +38,13 @@ form {
 	bottom: 0;
 	width: 100%;
 }
+#space{
+	background-color: black;
+}
 
 #messages{
 	height: 150px;
-	width: 400;
+	width: 800px;
 	overflow-y: scroll;
 	overflow-x: auto;
 }
